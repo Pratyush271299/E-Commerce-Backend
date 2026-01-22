@@ -18,7 +18,7 @@ namespace E_Commerce
             // Add DbContext 
             builder.Services.AddDbContext<ShopperDBContext>(options =>
             {
-                options.UseSqlServer(builder.Configuration.GetConnectionString("ShopperConnectionString"));
+                options.UseSqlServer(Environment.GetEnvironmentVariable("AZURE_SQL_CONNECTION"));
             });
 
             // Add Repositories to the DI Container
