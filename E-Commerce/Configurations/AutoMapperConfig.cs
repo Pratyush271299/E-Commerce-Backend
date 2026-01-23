@@ -11,7 +11,6 @@ namespace E_Commerce.Configurations
             CreateMap<SignUpDTO, User>()
                 .ForMember(dest => dest.Password, opt => opt.Ignore())
                 .ForMember(dest => dest.PasswordSalt, opt => opt.Ignore());
-            
             CreateMap<User, UserDTO>();
 
             CreateMap<User, UserDTO>().ReverseMap();
