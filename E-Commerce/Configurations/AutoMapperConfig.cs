@@ -8,7 +8,12 @@ namespace E_Commerce.Configurations
     {
         public AutoMapperConfig()
         {
-            CreateMap<User, SignUpDTO>().ReverseMap();
+            CreateMap<SignUpDTO, User>()
+                .ForMember(dest => dest.Password, opt => opt.Ignore())
+                .ForMember(dest => dest.PasswordSalt, opt => opt.Ignore());
+            
+            CreateMap<User, UserDTO>();
+
             CreateMap<User, UserDTO>().ReverseMap();
             CreateMap<CartProduct, UpdateDTO>().ReverseMap();
             CreateMap<CartProduct, CartDTO>().ReverseMap();
